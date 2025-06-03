@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="High-quality paper packaging solutions tailored for the textile industry.">
+    <meta name="keywords" content="paper packaging, textile packaging, eco-friendly packaging">
+    <meta name="author" content="JVA Packaging Pvt Ltd">
+    <title>JVA PACKAGING PVT LTD</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       
+        .login-popup {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; 
+        }
+
+        .login-popup-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            max-width: 90%;
+            position: relative;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .login-popup-content h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-popup-content input[type="text"],
+        .login-popup-content input[type="password"] {
+            width: calc(100% - 22px); 
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .login-popup-content button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-popup-content button:hover {
+            background-color: #218838;
+        }
+
+        #login-message {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #888;
+        }
+        .close-btn:hover {
+            color: #333;
+        }
+
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="logo">
+                <img src="img/jva logo.jpg" alt="jva packaging Logo">
+                <h1>JVA PACKAGING PVT LTD</h1>
+                <p>Commit. Create. Corrugate.</p>
+            </div>
+            <div class="contact-info">
+                <a href="tel:+919911582274">📞 (+91) 9911582274</a>
+                <a href="mailto:jvapackaging@gmail.com">✉ jvapackaging@gmail.com</a>
+                <a href="#" id="openLoginPopup" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+            </div>
+        </div>
+        <nav>
+            <div class="hamburger" onclick="toggleMenu()">
+                ☰ </div>
+            <ul id="nav-list" class="menu-visible">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="infra.html">Infrastructure</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="video.html">Videos</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="loginPopup" class="login-popup">
+        <div class="login-popup-content">
+            <span class="close-btn" id="closeLoginPopup">×</span>
+            <h2>Admin Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+                <p id="login-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <h1>Welcome to JVA Packaging - <br> Creating Solutions <br>for Corrugated Boxes</h1>
+                <p>Introducing JVA PACKAGING! Our boxes <br>
+                    the perfect solution to safely store<br> and transport your products. With<br> our durable, corrugated material, you can rest <br>assured that your goods are in good hands.<br> Let us help you take your business to the next level.</p>
+                <a href="JVA PACKAGING PVT LTD BROCHURE .pdf" target="_blank" class="btn" >Get Started</a>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-tachometer-alt"></i>
+                <p>Speed & Security</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-project-diagram"></i>
+                <p>Flexibility & Scalability</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-users"></i>
+                <p>Better Collaboration</p>
+            </div>
+        </div>
+
+        <div class="video-content">
+            <video autoplay muted loop>
+                <source src="img/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <header class="mission-statement">
+        <h1>Our Mission: Consistently on time with quality - no excuses</h1>
+    </header>
+
+    <section class="main-content">
+        <h2>Box Manufacturers Delhi NCR | Corrugated Box Manufacturer</h2>
+        <div class="cards-container">
+            <div class="card">
+                <img src="img/corgo.png" alt="Our Company" class="card-img">
+                <div class="card-content">
+                    <h3>Our Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="people.html">People</a></li>
+                        <li><a href="vision.html">Vision</a></li>
+                        <li><a href="infra.html" class="highlight">Sustainability</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/image2.jpg" alt="We Manufacture" class="card-img">
+                <div class="card-content">
+                    <h3>We Manufacture</h3>
+                    <ul>
+                        <li><a href="custom-boxes.html">Custom Boxes</a></li>
+                        <li><a href="die-cut-boxes.html">Die Cut Boxes</a></li>
+                        <li><a href="stock-boxes.html">MatPad Packaging Boxes</a></li>
+                        <li><a href="bulk-packaging.html">4-Color Printed Boxes</a></li>
+                        <li><a href="sheets-inner-pack.html">Sheets/Inner Pack</a></li>
+                        <li><a href="folding-cartons.html" class="highlight">Folding Cartons</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/image3.jpg" alt="Our Capabilities" class="card-img">
+                <div class="card-content">
+                    <h3>Our Capabilities</h3>
+                    <ul>
+                        <li><a href="our-services.html">Our Services</a></li>
+                        <li><a href="our-products.html">Our Products</a></li>
+                        <li><a href="our-equipment.html">Our Equipment</a></li>
+                        <li><a href="our-resources.html">Our Resources</a></li>
+                        <li><a href="box-gallery.html" class="highlight">Box Gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/corgo 2.png" alt="Our Advantages" class="card-img">
+                <div class="card-content">
+                    <h3>Our Advantages</h3>
+                    <ul>
+                        <li><a href="quality.html">Quality</a></li>
+                        <li><a href="innovation.html">Innovative</a></li>
+                        <li><a href="cost-effective.html">Cost-Effective</a></li>
+                        <li><a href="eco-friendly.html">Eco-friendly Packaging</a></li>
+                        <li><a href="partnership.html" class="highlight">Partnership</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="our-clients" class="clients-section">
+        <h2>Our Clients</h2>
+        <div class="clients-slider">
+            <div class="slide"><img src="com_logo/Monte_carlo.svg" alt="MONTE CARLO HOMES"></div>
+            <div class="slide"><img src="com_logo/signature.png" alt="KOCHER's SIGNATURE BLANKETS"></div>
+            <div class="slide"><img src="com_logo/Kurlon.png" alt="KURLON "></div>
+            <div class="slide"><img src="com_logo/pwm.webp" alt="PRAKASH WOOLLEN & SYNTHETIC MILLS LIMITED"></div>
+            <div class="slide"><img src="com_logo/ktm.png" alt="RAGHAV WOOLLEN MILLS"></div>
+            <div class="slide"><img src="com_logo/SUNVOICE.png" alt="RAGHAV WOOLLEN MILLS"></div>
+            <div class="slide"><img src="com_logo/sunplast.jpg" alt="SUNPLAST ELECTRONIC PVT. LTD."></div>
+        </div>
+    </section>
+    <button id="chat-button">💬</button>
+
+    <div id="chat-box">
+        <div id="chat-header">Contact Us</div>
+        <div id="chat-messages">Welcome! How can we assist you today?</div>
+        <div id="chat-input">
+            <form id="chat-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                <input type="hidden" name="subject" value="New message from chat box">
+                <input type="hidden" name="from_name" value="Chat User">
+                <input type="hidden" name="redirect" value="https://your-redirect-url.com">
+                <input type="text" id="chat-text" name="message" placeholder="Type a message..." required>
+                <button type="submit" id="send-button">Send</button>
+            </form>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h2>Top Corrugated Box Manufacturers uttar Pradesh, India</h2>
+            </div>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About JVA Packaging</h3>
+                    <p1>
+                        We are a leading manufacturer and trader of all types of corrugated packaging boxes. Experience the quality of our packaging solutions for a range of industries.
+                    </p1>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Corrugated Box</h3>
+                    <ul>
+                        <li><a href="#">3 Ply Corrugated Boxes</a></li>
+                        <li><a href="#">5 Ply Corrugated Boxes</a></li>
+                        <li><a href="#">7 Ply Corrugated Boxes</a></li>
+                        <li><a href="#">9 Ply Corrugated Boxes</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Packaging Solution</h3>
+                    <ul>
+                        <li><a href="#">Fruit Packaging</a></li>
+                        <li><a href="#">Electric Packaging</a></li>
+                        <li><a href="#">Sweet Packaging</a></li>
+                        <li><a href="#">Cake Packaging</a></li>
+                        <li><a href="#">Pizza Packaging</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Printed Box</h3>
+                    <ul>
+                        <li><a href="#">Printed Corrugated Boxes</a></li>
+                        <li><a href="#">Mono Carton Boxes</a></li>
+                        <li><a href="#">Bedsheet Boxes</a></li>
+                        <li><a href="#">Blanket Boxes</a></li>
+                        <li><a href="#">Heavy Duty Packaging</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><strong>JVA Packaging Pvt. Ltd.</strong></li>
+                        <li><a href="https://maps.app.goo.gl/AWVJdCpCkcMdWbh77"> 🗺 A3/54, Sikandrabad Gopalpur, Uttar Pradesh, India 203205</a></li>
+
+                        <li> <a href="tel:+919911582274">📞 +91-9911582274</a></li>
+                        <li> <a href="mailto:jvapackaging@gmail.com">✉ jvapackaging@gmail.com</a></li>
+
+                    </ul>
+                </div>
+                <div class="maps">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224760.96197865362!2d77.69749341778564!3d28.331929483795637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390c95ac6ce05339%3A0xa662cb6fce7e8651!2sJva%20Packaging%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1727687516761!5m2!1sen!2sin" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 JVA Packging Pvt Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // --- Existing JavaScript functions ---
+        function toggleMenu() {
+            const navList = document.getElementById('nav-list');
+            if (navList.classList.contains('menu-hidden')) {
+                navList.classList.remove('menu-hidden');
+                navList.classList.add('menu-visible');
+            } else {
+                navList.classList.remove('menu-visible');
+                navList.classList.add('menu-hidden');
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const slider = document.querySelector(".clients-slider");
+            let scrollAmount = 0;
+
+            function autoSlide() {
+                const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+                if (scrollAmount >= maxScrollLeft) {
+                    scrollAmount = 0; // Reset to the beginning
+                } else {
+                    scrollAmount += slider.clientWidth / 3; // Adjust step for smooth scroll
+                }
+                slider.scrollTo({
+                    left: scrollAmount,
+                    behavior: "smooth",
+                });
+            }
+
+            setInterval(autoSlide, 3000); // Slides every 3 seconds
+        });
+
+        const chatButton = document.getElementById('chat-button');
+        const chatBox = document.getElementById('chat-box');
+
+        // Toggle chat box visibility
+        chatButton.addEventListener('click', () => {
+            chatBox.style.display = chatBox.style.display === 'none' || chatBox.style.display === '' ? 'flex' : 'none';
+        });
+
+        // --- NEW JAVASCRIPT FOR LOGIN POPUP ---
+
+        const openLoginPopupBtn = document.getElementById('openLoginPopup');
+        const closeLoginPopupBtn = document.getElementById('closeLoginPopup');
+        const loginPopup = document.getElementById('loginPopup');
+        const loginForm = document.getElementById('loginForm');
+        const loginMessage = document.getElementById('login-message');
+
+        // Show the login popup when the "Login" button is clicked
+        openLoginPopupBtn.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent the default link behavior (e.g., navigating to #)
+            loginPopup.style.display = 'flex';
+        });
+
+        // Hide the login popup when the close button is clicked
+        closeLoginPopupBtn.addEventListener('click', () => {
+            loginPopup.style.display = 'none';
+            loginMessage.textContent = ''; // Clear any previous messages
+            loginMessage.className = '';
+            loginForm.reset(); // Clear the form fields
+        });
+
+        // Handle the login form submission
+        loginForm.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // IMPORTANT: Replace with the actual URL of your Flask backend's login endpoint
+            // Make sure your Flask app is running on this address and port!
+            const backendLoginUrl = 'http://127.0.0.1:5000/api/login';
+
+            try {
+                const response = await fetch(backendLoginUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: 'include', // NEW: Crucial for sending cookies cross-origin
+                    body: JSON.stringify({ username, password }) // Send data as JSON
+                });
+
+                const data = await response.json(); // Parse the JSON response from Flask
+
+                if (response.ok) { // Check if the HTTP status code is 2xx (e.g., 200 OK)
+                    loginMessage.className = 'success';
+                    loginMessage.textContent = data.message || 'Login successful!';
+                    console.log('Login success data:', data);
+
+                    // --- Action after successful login ---
+                    // Redirect to the main inventory dashboard (Flask's '/' route)
+                    setTimeout(() => {
+                        loginPopup.style.display = 'none'; // Close popup after a short delay
+                        loginMessage.textContent = ''; // Clear message
+                        loginMessage.className = '';
+                        loginForm.reset(); // Clear form
+                        // CORRECTED URL: Redirects to the root of your Flask application
+                        window.location.href = 'http://127.0.0.1:5000/';
+                    }, 1500); // Close after 1.5 seconds
+                    // ------------------------------------
+
+                } else {
+                    loginMessage.className = 'error';
+                    loginMessage.textContent = data.message || 'Login failed. Please check your credentials.';
+                    console.error('Login error data:', data);
+                }
+            } catch (error) {
+                loginMessage.className = 'error';
+                loginMessage.textContent = 'Network error: Could not reach the backend. Is your Flask server running?';
+                console.error('Error during fetch:', error);
+            }
+        });
+    </script>
+</body>
+</html>

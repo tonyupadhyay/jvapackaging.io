@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Card with Gallery</title>
+  <link rel="stylesheet" href="bp.css">
+</head>
+<body>
+
+  <!-- Product Card -->
+  <div class="product-card">
+    <img src="phantom.jpg" alt="Blanket Box" class="product-image">
+    <h2>Blanket Boxes</h2>
+    <p>High-quality folding cartons perfect for retail and consumer goods.</p>
+    <button class="learn-more" onclick="openModal()">Learn More</button>
+  </div>
+
+  <!-- Modal Gallery -->
+  <div id="galleryModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImage" class="modal-image" src="">
+
+    <!-- Controls -->
+    <div class="modal-controls">
+      <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+      <button class="next" onclick="changeImage(1)">&#10095;</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,583 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3f3f3;
+    color: #333;
+}
+
+/* Header styling */
+header {
+    background-color: #fff;
+    padding: 0% 0;
+    border-bottom: 0px solid #ddd;
+    width: 100%;
+    position: relative;
+
+}
+
+/* Top bar styling */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px; /* Adjust padding for responsiveness */
+    margin: 0;
+}
+
+/* Logo section */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo image styling */
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+/* Logo title and tagline */
+.logo h1 {
+    font-size: 1.5rem;
+    color: #680303;
+    margin-bottom: 0;
+}
+
+/* Logo description/tagline */
+.logo p {
+    font-size: 0.9rem;
+    color: #0c0364;
+    margin-top: 42px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    margin-left: -45%;
+}
+
+
+/* Contact info styling */
+.contact-info {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.contact-info a {
+    color: #050064;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+/* Add hover effect for contact links */
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start;
+        padding: 0 10%; /* Increase padding for better readability */
+    }
+
+    .logo img {
+        height: 45px; /* Slightly reduce image size */
+    }
+
+    .logo h1 {
+        font-size: 1.3rem; /* Reduce font size */
+    }
+
+    .logo p {
+        font-size: 0.85rem; /* Adjust tagline size */
+    }
+
+    .contact-info {
+        margin-top: 10px; /* Add space between logo and contact info */
+    }
+
+    .contact-info a {
+        font-size: 0.9rem; /* Adjust font size */
+        margin-left: 0;
+        margin-right: 10px;
+    }
+}
+
+/* Responsive Design for Small Phones */
+@media (max-width: 480px) {
+    .top-bar {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 2%;
+    }
+
+    .logo {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .logo img {
+        height: 40px; /* Further reduce image size */
+    }
+
+    .logo h1 {
+        font-size: 1.2rem; /* Adjust font size */
+    }
+
+    .logo p {
+        display: none;
+        font-size: 0.8rem; /* Adjust tagline font size */
+        margin-top: 5px;
+    }
+
+    .contact-info {
+        justify-content: center; /* Center the contact info */
+        margin-top: 15px; /* Add space between logo and contact info */
+    }
+
+    .contact-info a {
+        font-size: 0.85rem; /* Reduce font size */
+        margin-left: 5px; /* Adjust spacing between items */
+    }
+}
+nav {
+    background-color: #14213d;
+    position: relative;
+    
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+nav ul li a:hover {
+    border-bottom: 2px solid #fff;
+}
+
+/* Hide menu on small screens initially */
+.menu-hidden {
+    display: none;
+}
+
+.menu-visible {
+    display: flex; /* Make the menu visible on larger screens */
+}
+
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fff;
+    padding: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul.menu-visible {
+        display: none; /* Hide the menu by default on small screens */
+    }
+
+    .hamburger {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 20px;
+    }
+
+    nav ul.menu-visible {
+        display: flex; /* Make it visible if menu is toggled on small screens */
+    }
+}
+/* Header */
+.pro {
+    background-color: #14213d;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    
+}
+
+.pro h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.pro p {
+    font-size: 1.5em;
+}
+
+/* Catalogue Section */
+.catalogue-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.catalogue-section h2 {
+    font-size: 2.5em;
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+.catalogue-section p {
+    font-size: 1.2em;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background-color: white;
+    color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    width: 80%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.product-card a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #003366;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.product-card a:hover {
+    background-color: #ff4136;
+}
+/*
+@media (max-width: 768px) {
+    .product-card {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        width: 100%;
+    }
+}*/
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* Stack products in one column */
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .product-card h3 {
+        font-size: 1em;
+    }
+
+    .product-card p {
+        font-size: 0.85em;
+    }
+}
+
+/* For tablets and larger screens (768px and above) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+        gap: 15px;
+    }
+
+    .product-card h3 {
+        font-size: 1.1em;
+    }
+
+    .product-card p {
+        font-size: 0.9em;
+    }
+}
+
+/* For larger desktops (1024px and above) */
+@media (min-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr); /* Maintain three columns on large screens */
+    }
+}
+footer {
+    background-color: #14213d;
+    color: #fff;
+    padding: 21px 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px; /* Ensures columns don't get too narrow on small screens */
+}
+
+.footer-column h3 {
+    font-size: 1.3rem;
+    color: #b50606;
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+    line-height: 2;
+}
+
+.footer-column ul li {
+    color: #dcdcdc;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a {
+    color: #dcdcdc;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #b50606;
+    transform: translateX(5px);
+}
+
+.footer-column p1 {
+    color: #dcdcdc;
+    line-height: 1.8;
+}
+
+.contact-btn {
+    background-color: #b50606;
+    border: none;
+    color: white;
+    padding: 20px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 10px;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.contact-btn:hover {
+    background-color: #b50606;
+}
+
+.footer-column ul li strong {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #14213d;
+    margin-top: 3%;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #bbb;
+}
+
+.footer-bottom p:hover {
+    color: #b50606;
+}
+
+.contact-list li:hover {
+    background-color: #ffe6e6; /* Light red background on hover */
+    color: #ff0000; /* Text color changes to red on hover */
+}
+
+/* Stats Section */
+.stats-section {
+    background-color: #fff;
+    padding: 50px;
+    margin: 50px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stats-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.stat-description {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.maps iframe {
+    margin-left: 600px;
+    margin-top: -200px;
+    border-radius: 15px;
+}
+@media ( max-width: 480px){
+    
+    .footer-column {
+        min-width: 100%; /* Stack footer columns on smaller screens */
+        text-align: center;
+    }
+
+    .footer-bottom p {
+        font-size: 0.9rem; /* Adjust footer text size */
+    }
+
+    .maps iframe {
+        width: 100%; /* Ensure map scales */
+        height: auto;
+        margin-left:16%;
+        margin-top: -5%;
+    }
+}
+.learn-more {
+    background-color: #004aad;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .learn-more:hover {
+    background-color: #003380;
+  }
+  
+  /* Modal Gallery Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  .modal-image {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 8px;
+  }
+  
+  .modal-controls {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .prev, .next {
+    font-size: 2em;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+  }
+  
