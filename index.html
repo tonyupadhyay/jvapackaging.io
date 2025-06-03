@@ -380,77 +380,78 @@
         // --- NEW JAVASCRIPT FOR LOGIN POPUP ---
 
         const openLoginPopupBtn = document.getElementById('openLoginPopup');
-        const closeLoginPopupBtn = document.getElementById('closeLoginPopup');
-        const loginPopup = document.getElementById('loginPopup');
-        const loginForm = document.getElementById('loginForm');
-        const loginMessage = document.getElementById('login-message');
+const closeLoginPopupBtn = document.getElementById('closeLoginPopup');
+const loginPopup = document.getElementById('loginPopup');
+const loginForm = document.getElementById('loginForm');
+const loginMessage = document.getElementById('login-message');
 
-        // Show the login popup when the "Login" button is clicked
-        openLoginPopupBtn.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent the default link behavior (e.g., navigating to #)
-            loginPopup.style.display = 'flex';
+// Show the login popup when the "Login" button is clicked
+openLoginPopupBtn.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent the default link behavior (e.g., navigating to #)
+    loginPopup.style.display = 'flex';
+});
+
+// Hide the login popup when the close button is clicked
+closeLoginPopupBtn.addEventListener('click', () => {
+    loginPopup.style.display = 'none';
+    loginMessage.textContent = ''; // Clear any previous messages
+    loginMessage.className = '';
+    loginForm.reset(); // Clear the form fields
+});
+
+// Handle the login form submission
+loginForm.addEventListener('submit', async function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // IMPORTANT: Replace with the actual URL of your Flask backend's login endpoint
+    // Make sure your Flask app is running on this address and port!
+    const backendLoginUrl = 'http://127.0.0.1:5000/api/login'; // Your local Flask backend URL
+
+    // This is the Render.com link you provided for redirection
+    const renderComRedirectUrl = 'https://flask-web-app-w3a8.onrender.com';
+
+    try {
+        const response = await fetch(backendLoginUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include', // Crucial for sending cookies cross-origin
+            body: JSON.stringify({ username, password }) // Send data as JSON
         });
 
-        // Hide the login popup when the close button is clicked
-        closeLoginPopupBtn.addEventListener('click', () => {
-            loginPopup.style.display = 'none';
-            loginMessage.textContent = ''; // Clear any previous messages
-            loginMessage.className = '';
-            loginForm.reset(); // Clear the form fields
-        });
+        const data = await response.json(); // Parse the JSON response from Flask
 
-        // Handle the login form submission
-        loginForm.addEventListener('submit', async function(event) {
-            event.preventDefault(); // Prevent default form submission
+        if (response.ok) { // Check if the HTTP status code is 2xx (e.g., 200 OK)
+            loginMessage.className = 'success';
+            loginMessage.textContent = data.message || 'Login successful!';
+            console.log('Login success data:', data);
 
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+            // --- Action after successful login ---
+            // Redirect to the specified Render.com link
+            setTimeout(() => {
+                loginPopup.style.display = 'none'; // Close popup after a short delay
+                loginMessage.textContent = ''; // Clear message
+                loginMessage.className = '';
+                loginForm.reset(); // Clear form
+                window.location.href = renderComRedirectUrl; // Redirect to Render.com link
+            }, 1500); // Close after 1.5 seconds
+            // ------------------------------------
 
-            // IMPORTANT: Replace with the actual URL of your Flask backend's login endpoint
-            // Make sure your Flask app is running on this address and port!
-            const backendLoginUrl = 'http://127.0.0.1:5000/api/login';
-             const renderComRedirectUrl = 'https://flask-web-app-w3a8.onrender.com';
-
-            try {
-                const response = await fetch(backendLoginUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    credentials: 'include', // NEW: Crucial for sending cookies cross-origin
-                    body: JSON.stringify({ username, password }) // Send data as JSON
-                });
-
-                const data = await response.json(); // Parse the JSON response from Flask
-
-                if (response.ok) { // Check if the HTTP status code is 2xx (e.g., 200 OK)
-                    loginMessage.className = 'success';
-                    loginMessage.textContent = data.message || 'Login successful!';
-                    console.log('Login success data:', data);
-
-                    // --- Action after successful login ---
-                    // Redirect to the main inventory dashboard (Flask's '/' route)
-                    setTimeout(() => {
-                        loginPopup.style.display = 'none'; // Close popup after a short delay
-                        loginMessage.textContent = ''; // Clear message
-                        loginMessage.className = '';
-                        loginForm.reset(); // Clear form
-                        // CORRECTED URL: Redirects to the root of your Flask application
-                        window.location.href = 'http://127.0.0.1:5000/';
-                    }, 1500); // Close after 1.5 seconds
-                    // ------------------------------------
-
-                } else {
-                    loginMessage.className = 'error';
-                    loginMessage.textContent = data.message || 'Login failed. Please check your credentials.';
-                    console.error('Login error data:', data);
-                }
-            } catch (error) {
-                loginMessage.className = 'error';
-                loginMessage.textContent = 'Network error: Could not reach the backend. Is your Flask server running?';
-                console.error('Error during fetch:', error);
-            }
-        });
+        } else {
+            loginMessage.className = 'error';
+            loginMessage.textContent = data.message || 'Login failed. Please check your credentials.';
+            console.error('Login error data:', data);
+        }
+    } catch (error) {
+        loginMessage.className = 'error';
+        loginMessage.textContent = 'Network error: Could not reach the backend. Is your Flask server running?';
+        console.error('Error during fetch:', error);
+    }
+});
     </script>
 </body>
 </html>
