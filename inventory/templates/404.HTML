@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Nothing Found</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #f8f8f8; /* Light grey background */
+            --text-color: #333333; /* Dark grey text */
+            --accent-color: #6a057e; /* Deep purple */
+            --button-bg: #8800a0; /* Slightly lighter purple for button */
+            --button-hover: #75008b;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: var(--background-color); /* Solid background color */
+            color: var(--text-color);
+            text-align: center;
+            line-height: 1.6;
+            overflow: hidden;
+            /* Removed the 'position: relative;' as it's not needed without the ::before pattern */
+        }
+
+        .container {
+            background-color: #ffffff; /* Pure white container */
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            padding: 50px 60px;
+            max-width: 550px;
+            width: 90%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .error-title {
+            font-family: 'Merriweather', serif; /* Serif font for title */
+            font-size: 3.5em;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .error-message {
+            font-size: 1.2em;
+            color: var(--text-color);
+            margin-bottom: 30px;
+        }
+
+        .quote-box {
+            font-family: 'Merriweather', serif;
+            font-style: italic;
+            font-size: 1.1em;
+            color: var(--text-color);
+            border-left: 3px solid var(--accent-color);
+            padding-left: 15px;
+            margin: 30px auto;
+            max-width: 80%;
+            line-height: 1.8;
+        }
+
+        .quote-author {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9em;
+            font-weight: 400;
+            color: #666;
+        }
+
+        .home-button {
+            display: inline-block;
+            background-color: var(--button-bg);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 50px; /* Pill shape */
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .home-button:hover {
+            background-color: var(--button-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Removed the body::before pseudo-element that created the background pattern */
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px;
+            }
+            .error-title {
+                font-size: 2.8em;
+            }
+            .error-message {
+                font-size: 1em;
+            }
+            .quote-box {
+                font-size: 1em;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px;
+            }
+            .error-title {
+                font-size: 2.2em;
+            }
+            .error-message {
+                font-size: 0.9em;
+            }
+            .quote-box {
+                font-size: 0.9em;
+                padding-left: 10px;
+            }
+            .home-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-title">404</div>
+        <p class="error-message">Nothing is found here. The page you're looking for seems to have vanished.</p>
+
+        <div class="quote-box">
+            "Not all who wander are lost, but this page certainly is."
+            <span class="quote-author">— Adapted from J.R.R. Tolkien</span>
+        </div>
+
+        <a href="http://127.0.0.1:5500/index.html" class="home-button">Go to Homepage</a>
+    </div>
+</body>
+</html>
